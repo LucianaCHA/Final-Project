@@ -31,8 +31,6 @@ export default function Navbar() {
   )
 }
 
-
-
 const NavContainer = styled.nav`
   h2{
     color: white;

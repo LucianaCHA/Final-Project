@@ -6,30 +6,49 @@ import HomeComics from "./Components/HomeComponent/HomeComic/HomeComics";
 import DetailComic from "./Components/Details/DetailComic/DetailComic"
 import DetailCharacter from "./Components/Details/DetailCharacter/DetailCharacter"
 import Login from "./Components/Login/Login.jsx";
-
 import { Form } from "./Components/Form/Form";
-
+import { Button } from '@material-ui/core';
 // import Login from "./Components/Login/Login.jsx";
-
 // import HomeComics from "./Components/HomeComponent/HomeComic/HomeComics";
-import NavBar from "./Components/Navbar/Navbar"
+//import NavBar from "./Components/Navbar/Navbar"
+
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+const theme = createTheme({
+  status: {
+    danger: '#e53e3e',
+  },
+  palette: {
+    primary: {
+      main: '#0971f1',
+      darker: '#053e85',
+    },
+    neutral: {
+      main: '#64748B',
+      contrastText: '#fff',
+    },
+  },
+});
+
 function App() {
+ 
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-
-           
-          {/* <Route path='/LandingPage' element={<LandingPage />} /> */}
-            <Route path='/homeCharacter' element={<HomeCharacter />} />
-            <Route path='/homeComics' element={<HomeComics />} />
-            <Route path='/homeComics/DetailComic/:id' element={<DetailComic />} />
-            <Route path='/homeComics/DetailCharacter/:id' element={<DetailCharacter/>} />
-            <Route path='/form' element={<Form />} />
-            <Route path='/login' element={<Login />} />
-          <Route path='*' element={<LandingPage />} />
-        </Routes>
-      </BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <Button color="neutral" variant="contained">
+          <BrowserRouter>
+            <Routes>
+              {/* <Route path='/LandingPage' element={<LandingPage />} /> */}
+                <Route path='/homeCharacter' element={<HomeCharacter />} />
+                <Route path='/homeComics' element={<HomeComics />} />
+                <Route path='/homeComics/DetailComic/:id' element={<DetailComic />} />
+                <Route path='/homeComics/DetailCharacter/:id' element={<DetailCharacter/>} />
+                <Route path='/form' element={<Form />} />
+                <Route path='/login' element={<Login />} />
+              <Route path='*' element={<LandingPage />} />
+            </Routes>
+          </BrowserRouter>
+        </Button>
+    </ThemeProvider>
     </div>
   );
 }
