@@ -9,7 +9,7 @@ export const USER_EDIT = "USER_EDIT";
 export const UPDATE_COMIC = "UPDATE_COMIC";
 export const DELETE_COMIC = "DELETE_COMIC";
 export const GET_CHARACTER_ID = "GET_CHARACTER_ID" // caso personaje por id
-
+export const POST_COMIC = "POST_COMIC";
 export const FILT_BY_PLAN = "FILT_BY_PLAN"
 export const GET_NAME = "GET_NAME"
 export const GET_USERS = "GET_USERS"
@@ -265,6 +265,22 @@ export function updateComic(comic) {
         }
     }
 }
+
+export function postComic(payload) {
+    return async function(dispatch) {
+        try {
+            const comicPost = await axios.post('http://localhost:3001/create', payload)
+            return dispatch({
+                type:POST_COMIC,
+                payload: comicPost.data
+            })
+        } 
+        catch (error) {
+            console.log(error)
+        }
+    }
+}
+
 
 export const deleteComic = (id) => {
     return async (dispatch) => {
