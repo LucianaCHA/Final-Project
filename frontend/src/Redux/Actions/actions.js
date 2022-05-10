@@ -13,7 +13,6 @@ export const POST_COMIC = "POST_COMIC";
 export const FILT_BY_PLAN = "FILT_BY_PLAN"
 export const GET_NAME = "GET_NAME"
 export const GET_USERS = "GET_USERS"
-
 //Autentication
 export const AUTHENTICATED = "AUTHENTICATED";
 export const REMEMBER_ME = "REMEMBER_ME";
@@ -255,25 +254,6 @@ export function updateComic(comic) {
                 image: comic.image,
             };
             const editComic = await axios.put(`http://localhost:3001/comics/${comic.id}`, comicE);
-            return dispatch ({
-                type: UPDATE_COMIC,
-                payload: editComic.data
-            })
-        }
-        catch(error) {
-            console.log(error)
-        }
-    }
-}
-export function postComic(comic) {
-    return async function(dispatch) {
-        try {
-            const comicE = {
-                title: comic.title,
-                description: comic.description,
-                image: comic.image,
-            };
-            const editComic = await axios.post(`http://localhost:3001/comics/${comic.id}`, comicE);
             return dispatch ({
                 type: UPDATE_COMIC,
                 payload: editComic.data
