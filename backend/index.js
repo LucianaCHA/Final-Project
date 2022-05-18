@@ -8,9 +8,7 @@ conn.sync({ force: false }).then(() => {
 });
 /*hola que hace */
 
-setTimeout(() => {
-	const { Plans, Users } = require("./src/db.js");
-
+const { Plans, Users } = require("../backend/src/db");
 var superAdmin = Users.findOrCreate({
 	where: {
 		email: "soyadmin@henry.com",
@@ -56,4 +54,4 @@ Promise.all([plan1, plan2, plan3, plan4, superAdmin, planes])
 		console.log(planes.Promise);
 	});//54465
 
-  }, 15000);
+}, 15000);
