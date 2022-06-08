@@ -1,21 +1,20 @@
 # MARVEL+
 
 This app was the final project to been graduated as Full Stack Developer. 
-This app consumes the [API Marvel Comics](https://developer.marvel.com/) and would allow to  get,by a regular payment , access to lecture to Marvel comics. For those who arenpt payoing yet would be able to navigate in the hole catalogue of comics and characters. There are some filters and search bars to offer a better UX. 
-For the owner, there is a private module qhere ios possible to add and remove comics, upgrade users nd get stats about billing and other key points for bussines.
-The design and componenting was made to be affordable and adaptatives.
+This app consumes the [API Marvel Comics](https://developer.marvel.com/) and would allow to  get,by a regular payment , access to lecture to Marvel comics. For those who aren't paying yet would be able to navigate the whole catalog of comics and characters. There are some filters and search bars to offer a better UX. For the owner, there is a private module where it is possible to add and remove comics, upgrade users and get stats about billing and other key points for business. The design and components were made to be affordable and adaptatives.
+
 
 ## What more I ´d like to let you know about this project?
 
-This was a great experience were I had the opportunity to work in a team whom had to be coordinated to take to term a huge project y less than three weeks.
-I´m glad to the team for the support and for hearing when I proposed them to do something quite diferent as final project.
-We lost some colegues in this journey, but that made us be even more effective and gave us the chance to take the best of each one.
+This was a great experience where I had the opportunity to work in a team which had to be coordinated to take to term a huge project in less than three weeks.
+I´m glad for the support and for hearing when I proposed to them to do something quite different as a final project.
+We lost some colleagues on this journey, but that made us even more effective and gave us the chance to take the best of each one.
 </br>
-At tech level, I´ve definitely connected what I 've learned so far about React JS and its lifecycles, and implemented succesfully its latests features, such as hooks , React router v6, among others.
-Although my participation was stronger in frontend, I was also actively involved in backend. At firs, defining the necesary routes to connect components and then in a more global way I´ve colaborated ind the creation of models to improve database-
-I learned about login libraries, and choose to implememt Auh0 . I also took care of protected routes to allow access according to user role.
-Finally, this project gave me the chance to onvestigate about several libraries-some of them barely heard for me- some were implemented other have already become available tools for future work.
-
+At tech level, I've definitely connected what I 've learned so far about React JS and its lifecycles, and successfully implemented its latest features, such as hooks , React router v6, among others.
+Although my participation was stronger in frontend, I was also actively involved in the backend. At firs, defining the necessary routes to connect components and then in a more global way I've collaborated in the creation of models to improve database-
+I learned about login libraries, and choosed to implement Auh0 . I also took care of protected routes to allow access according to the user role.
+Finally, this project gave me the chance to investigate several libraries-some of them barely heard of me- some were implemented, others have already become available tools for future work
+</br>
 
 
 ## Getting Started
