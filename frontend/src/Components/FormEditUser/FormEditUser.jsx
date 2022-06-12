@@ -41,7 +41,7 @@ const FormEditUser = () => {
         }))
     }
 
-    function handleSubmit(e, name, picture, nickname) {
+    function handleSubmit(e) {
         e.preventDefault();
         dispatch(setUserByEmail(log.email, input));
         navigate('/profile');
@@ -56,16 +56,19 @@ const FormEditUser = () => {
                 alignItems:"center",
                 flexDirection: "column",
                 justifyContent:"center",
-                height:"100vh",
+                height:"70vh",
+                top:"10vh"
+
             }}
         >
         <Navbar/>
-            <h1>Edit Data</h1>
-            <Form style={{ width:"30%"}} onSubmit={handleSubmit} >
+            <h1 style={{ textShadow:"2px 2px black"}} >Edit Data</h1>
+            <Form style={{ width:"30%", boxShadow: '2px 2px black'}} onSubmit={handleSubmit} >
            
                 <div>
-                    <label>Name</label>
+                    <label style={{ textShadow:"2px 2px black"}}>Name</label>
                     <input
+
                         type="text"
                         placeholder="Your Name"
                         name="name"
@@ -75,14 +78,14 @@ const FormEditUser = () => {
                 </div>
   
                 <div>
-                    <label>Picture</label>
+                    <label style={{ textShadow:"2px 2px black"}}>Picture</label>
                     <input
                         type="url"
                         placeholder="picture"
                         name="picture"
                         onChange={handleChange}
                     />
-                    {error.picture && <p style={{ color:"red"}} > {error.picture} </p>}
+                    {error.picture !=='' && <p style={{ color:"yellow", textShadow:"2px 2px black"}} > {error.picture} </p>}
                 </div>
                 {/* agrego salto página para presentar */}
                 <br/>
@@ -91,7 +94,7 @@ const FormEditUser = () => {
                 <div>
                    
                     <Link to="/profile">
-                        <Button onClick={handleSubmit} type="submit"> Confirm </Button>
+                        <button onClick={handleSubmit} type="submit" className="btn btn-primary btn-block "> Confirm </button>
                     </Link>
                     
                 </div>

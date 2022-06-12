@@ -11,7 +11,6 @@ import "./Profile.css";
 const Profile = () => {
   const login = useSelector((state) => state);
   const logged = login.ComicsReducer.user;
-  console.log("logged holaaaaaaaaaaaaaa!", logged);
   const { user } = useAuth0();
 
   const navigate = useNavigate();
@@ -58,7 +57,7 @@ const Profile = () => {
               }
             </h2>
           ) : null}
-          <h2> Latest favourites added:</h2>
+          <h2> Newest favourites:</h2>
         </div>
       </div>
       <div className="row">
