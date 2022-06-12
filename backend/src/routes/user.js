@@ -38,14 +38,13 @@ router.post("/", async (req, res) => {
     //   });
     //   await user.setPlans(ElPlan.id);
 
-    console.log("se creó mi usuario pa? " + created);
 
     return res.status(201).json({ user, created });
   } catch (error) {
     console.log(error, "algo pasó con el post del user chequea los campos");
     return res
-      .status(200)
-      .json({ mensaje: "algo pasó con el post del user chequea los campos" });
+      .status(404)
+      .json({ mensaje: "Something went wrong creating user" });
   }
 });
 router.put("/db", async (req, res) => {
@@ -72,7 +71,7 @@ router.put("/db", async (req, res) => {
       role: req.body.role,
     });
 
-    return res.status(201).json({ user });
+    return res.status(200).json({ user });
   } catch (error) {
     console.log(error, "error en la ruta put user");
   }
@@ -89,7 +88,7 @@ router.get("/:email", async (req, res) => {
         email: email,
       },
     });
-    return res.status(201).json({ user });
+    return res.status(200).json({ user });
   } catch (error) {
     console.log(error);
   }
@@ -227,7 +226,7 @@ router.get("/login", async (req, res) => {
       },
     });
 
-    return res.status(201).json(userOld);
+    return res.status(200).json(userOld);
   } catch (error) {
     console.log(error);
     next(error);
@@ -322,18 +321,3 @@ router.get('/admin/:email', async (req, res, next) => {
 // });
 
 module.exports = router;
-
-// <div>
-
-// <div></div>
-// <Link className='link_card' to={`/homeComics/DetailComic/${id}`}>
-//            <div className='container_card'>
-//                 <div className='img_card_container'>
-//                 <img className='img_card' src={image} alt={title} />
-//                 </div>
-//                 <div className='detail_card_container'>
-//                    <p className='name_comic_card'>{title}</p>
-//                 </div>
-//             </div>
-//         </Link>
-// </div>

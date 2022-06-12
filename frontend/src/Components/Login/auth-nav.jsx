@@ -9,20 +9,22 @@ const AuthNav = () => {
   const { user } = useAuth0();
   const dispatch = useDispatch();
  
-    async  function createUser() {
-  const elegiunnombre = await axios
-      .post(`/user/login`, { email: user.email })
+  function createUser() {
+  axios
+      .post(`/user/login`, { email: user.email 
+      })
       .then((res) => {
         dispatch(login(res.data));
        
-      }, [user]);
+      }, []);
+      console.log('user en authNav',user);
   }
 
   useEffect(() => {
     setTimeout(() => {
       user ? createUser() : console.log("We re hiring developers");
     }, 2);
-  }, [user]);
+  }, []);
 
   return (
 
