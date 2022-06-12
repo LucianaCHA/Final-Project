@@ -85,7 +85,7 @@ export class Code extends React.Component {
                 <span className="reserverd-rights">©2022 MARVEL</span>
 
                <br></br>
-                <Link to="/"><button  className="btn btn-primary btn-block">VOLVER A LA 
+                <Link to="/"><button  className="btn btn-primary btn-block">BACK to 
                 HOME </button></Link>
                  
 
