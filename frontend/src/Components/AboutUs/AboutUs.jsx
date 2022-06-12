@@ -2,77 +2,84 @@ import React from "react";
 import style from "styled-components";
 import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
 import styled from "styled-components";
-import Code from '../AboutUs/Code';
-import mili from './img/team/WhatsApp Image 2022-05-18 at 12.51.25.jpeg';
-import meli from './img/team/WhatsApp Image 2022-05-16 at 20.09.00.jpeg';
-import lu from  './img/team/WhatsApp Image 2022-05-17 at 13.51.18.jpeg';
-import Joel from './img/team/WhatsApp Image 2022-05-18 at 12.38.16.jpeg'
-import Ale from './img/team/WhatsApp Image 2022-05-18 at 12.52.05.jpeg'
-const AboutUs = () =>{
-return (
+import Code from "../AboutUs/Code";
+import mili from "./img/team/WhatsApp Image 2022-05-18 at 12.51.25.jpeg";
+import meli from "./img/team/WhatsApp Image 2022-05-16 at 20.09.00.jpeg";
+import lu from "./img/team/WhatsApp Image 2022-05-17 at 13.51.18.jpeg";
+import Joel from "./img/team/WhatsApp Image 2022-05-18 at 12.38.16.jpeg";
+import Ale from "./img/team/WhatsApp Image 2022-05-18 at 12.52.05.jpeg";
+const AboutUs = () => {
+  return (
     <Sec>
       <Co>
-       <h1><br></br></h1>
-            <div class="contenedor">
-              <h1>NUESTRO EQUIPO </h1>
-                <SobreNosotros>Sobre nosotros</SobreNosotros>
-                <h2 class="slogan">Creamos aplicaciones altamente funcionales - 100% adaptadas a tus necesidades</h2>
-                <h3>Trabajamos utlizando las últimas tecnologías para mantener a nuestros clientes a la vanguardia, proveyendo el mejor servicio asgurando que estarán absoletos en un corto plazo</h3>
-                <p class="parrafo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem dicta rem hic totam necessitatibus
-                    tempora animi error perferendis. Vero corrupti porro quia! Ad saepe alias, officiis voluptatem sed, odio
-                    dolores neque dolorem placeat nam quia numquam soluta ipsam nostrum consequuntur, a magnam non. Tenetur
-                    repudiandae distinctio inventore voluptate fugit laborum?</p>
-                
-            </div>
-            <div className="name">
-              <h3>
-                Alexis , Melisa , Joel , Luciana  y Milagros  
-              </h3>
-              <h1>NUESTRO EQUIPO COMPUESTO POR 5 INTEGRANTES </h1> 
-             </div>
-        </Co>
+        <h1>
+          <br></br>
+        </h1>
+        <div class="contenedor">
+          <h1>NUESTRO EQUIPO </h1>
+          <SobreNosotros>Quienes somos</SobreNosotros>
+          <h2 class="slogan">
+            Creamos aplicaciones altamente funcionales - 100% adaptadas a tus
+            necesidades
+          </h2>
+          <h3>
+            Trabajamos utlizando las últimas tecnologías para mantener a
+            nuestros clientes a la vanguardia, proveyendo soporte y
+            asesoramiento.
+          </h3>
+          <p class="parrafo">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Exercitationem dicta rem hic totam necessitatibus tempora animi
+            error perferendis. Vero corrupti porro quia! Ad saepe alias,
+            officiis voluptatem sed, odio dolores neque dolorem placeat nam quia
+            numquam soluta ipsam nostrum consequuntur, a magnam non. Tenetur
+            repudiandae distinctio inventore voluptate fugit laborum?
+          </p>
+        </div>
+        <div className="name" style={{margin:'10px'}}>
+          <h3>Alexis , Melisa , Joel , Luciana y Milagros</h3>
+        </div>
+      </Co>
       <Seccion>
-            <Cot>
-                <Wrap>
-                <h1>Melisa</h1>
-                    <img src={meli} alt="viewer"/>
-                    <video autoPlay={true} playsInline={true} loop={true}>
-                      <source src="/videos/1564676296-national-geographic.mp4"></source>
-                    </video>
-                    <p>Melisa Ferreira</p>
-                </Wrap>
-                <Wrap>
-                <img src={Joel} alt="viewer"/>
-                    <video autoPlay={true} playsInline={true} loop={true}>
-                      <source></source>
-                    </video>
-                </Wrap>
-                <Wrap>
-                    <img src={lu} alt="viewer"/>
-                    <video autoPlay={true} playsInline={true} loop={true}>
-                      <source src="/videos/1564676296-national-geographic.mp4"></source>
-                    </video>
-                </Wrap>
-                <Wrap>
-                    <img src={Ale} alt="viewer"/>
-                    <video autoPlay={true} playsInline={true} loop={true}>
-                      <source src="/videos/1564676296-national-geographic.mp4"></source>
-                    </video>
-                </Wrap>
-                <Wrap>
-                    <img src={mili} alt="viewer"/>
-                    <video autoPlay={true} playsInline={true} loop={true}>
-                      <source src="/videos/1564676296-national-geographic.mp4"></source>
-                    </video>
-                </Wrap>  
-            </Cot> 
-        <Code /> 
-      </Seccion>   
-      </Sec>
-      
+        <Cot>
+          <Wrap>
+            <h1>Melisa</h1>
+            <img src={meli} alt="viewer" />
+            <video autoPlay={true} playsInline={true} loop={true}>
+              <source src="/videos/1564676296-national-geographic.mp4"></source>
+            </video>
+            <p>Melisa Ferreira</p>
+          </Wrap>
+          <Wrap>
+            <img src={Joel} alt="viewer" />
+            <video autoPlay={true} playsInline={true} loop={true}>
+              <source></source>
+            </video>
+          </Wrap>
+          <Wrap>
+            <img src={lu} alt="viewer" />
+            <video autoPlay={true} playsInline={true} loop={true}>
+              <source src="/videos/1564676296-national-geographic.mp4"></source>
+            </video>
+          </Wrap>
+          <Wrap>
+            <img src={Ale} alt="viewer" />
+            <video autoPlay={true} playsInline={true} loop={true}>
+              <source src="/videos/1564676296-national-geographic.mp4"></source>
+            </video>
+          </Wrap>
+          <Wrap>
+            <img src={mili} alt="viewer" />
+            <video autoPlay={true} playsInline={true} loop={true}>
+              <source src="/videos/1564676296-national-geographic.mp4"></source>
+            </video>
+          </Wrap>
+        </Cot>
+        <Code />
+      </Seccion>
+    </Sec>
   );
-}
-
+};
 
 const SignUp = styled.a`
   width: 100%;
@@ -91,14 +98,16 @@ const SignUp = styled.a`
   }
 `;
 
-const  Sec = styled.div`
+const Sec = styled.div`
+margin: 15px 15px;
 top: 0px;
 background-color: #000000;
 
 }`;
 
 const Co = styled.div`
-width: 100%;
+
+width: 90%;
 max-width:1650px;
 margin: auto;
 overflow: hidden;
@@ -120,24 +129,24 @@ overflow: hidden;
 }`;
 
 const Seccion = styled.div`
-width: 100%;
+width: 90%;
 max-width:1650px;
 margin: auto;
 overflow: hidden;
 }`;
 
-
 const Cot = styled.div`
-margin-top: 30px;
-padding: 30px 0 26px;
-display: grid;
-grid-gap: 20px;
-background-color: #000000;
-grid-template-columns: repeat(5, minmax(0, 1fr));
-@media screen and (max-width: max-width:1650px;
-  ){
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-}
+  margin-top: 20px;
+  margin-rigth: 30px;
+  padding: 30px 0 26px;
+  display: grid;
+  grid-gap: 20px;
+  background-color: #000000;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  @media screen and;
+  ) {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
 `;
 
 const Wrap = styled.div`
@@ -170,4 +179,3 @@ img{
 }
 `;
 export default AboutUs;
-

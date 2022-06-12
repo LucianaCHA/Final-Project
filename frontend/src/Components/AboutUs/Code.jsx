@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { keyframes } from "styled-components";
-import Box from '@mui/material/Box';
-import Fab from '@mui/material/Fab';
-import NavigationIcon from '@mui/icons-material/Navigation';
+// import Box from '@mui/material/Box';
+// import Fab from '@mui/material/Fab';
+// import NavigationIcon from '@mui/icons-material/Navigation';
 import {Link} from "react-router-dom";
 
 const Cod = styled.div`
@@ -85,7 +85,7 @@ export class Code extends React.Component {
                 <span className="reserverd-rights">©2022 MARVEL</span>
 
                <br></br>
-                <Link to='/' ><button  className="btn btn-primary btn-block">VOLVER A LA 
+                <Link to="/"><button  className="btn btn-primary btn-block">VOLVER A LA 
                 HOME </button></Link>
                  
 
