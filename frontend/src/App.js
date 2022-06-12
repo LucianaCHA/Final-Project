@@ -39,8 +39,10 @@ import { useState } from "react";
 
 function App() {
   const { user, isLoading, isAuthenticated } = useAuth0();
-
+console.log('data user',user)
+console.log('autenticado app?',isAuthenticated)
   const log = useSelector((state) => state.ComicsReducer.user);
+  console.log('logueoState',log)
 
   if (isLoading) {
     return (

@@ -6,13 +6,13 @@ import CheckoutBut from "../PayPal/PayPal";
 import { useAuth0 } from "@auth0/auth0-react";
 // import FloatingActionButtons from "../../Components/Admin/Admin";
 import {  useDispatch } from "react-redux";
-import { useEffect } from "react";
-import { authenticateUser, loginWithPopup } from "../../Redux/Actions/actions";
+// import { useEffect } from "react";
+// import { authenticateUser, loginWithPopup } from "../../Redux/Actions/actions";
 // import { makeStyles } from '@material-ui/core/styles';
 // import { useNavigate } from "react-router-dom";
 // import SignupButton from "../Login/SigUp";
 // import {userCreate} from "../../Redux/Actions/actions";
-import LoginButton from "../Login/LoginButton";
+// import LoginButton from "../Login/LoginButton";
 // import Fab from '@material-ui/core/Fab';
 // import AddIcon from '@material-ui/icons/Add';
 // import EditIcon from '@material-ui/icons/Edit';
@@ -20,18 +20,16 @@ import LoginButton from "../Login/LoginButton";
 // import NavigationIcon from '@material-ui/icons/Navigation';
 import AuthNav from "../Login/auth-nav";
 import Navbar from "../Navbar/Navbar";
-
-
-import { makeStyles } from '@material-ui/core/styles';
-import Landing from './Accordion/Accordion';
+// import Landing from './Accordion/Accordion';
 import Viewer from '../../../src/Components/HomeComponent/Favorite/Viwers' 
 import Accordion from '../Banner/Accordion/Accordion'
 
 const Login = (props) => {
 
   const { loginWithPopup, loginWithRedirect, user , logout,isAuthenticated  } = useAuth0();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 console.log('está authenticado?', isAuthenticated)
+console.log('usuario', user)
   // const useStyles = makeStyles((theme) => ({
   //   root: {
   //     '& > *': {
@@ -51,15 +49,15 @@ console.log('está authenticado?', isAuthenticated)
 
 
 
-  const handleLogin =async () => {
-  let response= await  loginWithPopup();
-  console.log(user)
-  console.log(isAuthenticated)
-  }
-  const handleLogout =async () => {
-  let response= await  logout();
-  console.log(user)
-  }
+  // const handleLogin =async () => {
+  // let response= await  loginWithPopup();
+  // console.log(user)
+  // console.log(isAuthenticated)
+  // }
+  // const handleLogout =async () => {
+  // let response= await  logout();
+  // console.log(user)
+  // }
 
   return (
     <>
@@ -81,9 +79,9 @@ console.log('está authenticado?', isAuthenticated)
        <a href="/">
           <Logo src={logo} alt="Marvel" />
         </a>
-        <a href="/formAdmin">
+        {/* <a href="/formAdmin">
           <LogIn>ACCESS ADMIN</LogIn>
-        </a>
+        </a> */}
         <AuthNav/>
 
         {isAuthenticated ? (
@@ -152,11 +150,11 @@ console.log('está authenticado?', isAuthenticated)
           <Content>
             <CTA>
             <a href="/AboutUs">
-          <LogIn> MORE INFORMATION ABOUT US</LogIn>
+          <LogIn>ABOUT US</LogIn>
               </a>
             <Description>
               <br></br>
-              <h5> To consult about our services, Digital agency. We provide digital solutions </h5>
+              <h5> Contact us to know more about our services. Digital solutions </h5>
             </Description>
             </CTA>
             <BackgroundImg />

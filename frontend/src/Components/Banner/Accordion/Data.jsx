@@ -1,7 +1,7 @@
 export const Data = [
     {
-      question: 'What included Marvel?',
-      answer: 'The best stories Marvel, Star Wars and National Geographic, all in one place. • Groupwatch: Share your favorite stories, even when you are far away.'
+      question: 'What is included in Marvel+?',
+      answer: 'Best Marvel stories, Star Wars and National Geographic, all in one place. • Groupwatch: Share your favorite stories, even when you are far away.'
     },
     {
       question: 'What payment methods can I use?',

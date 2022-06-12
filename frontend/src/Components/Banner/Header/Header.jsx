@@ -6,7 +6,6 @@ import blood1 from "../Header/imgHeader/blood1.png";
 import marvelogo from "../Header/imgHeader/logo.png";
 import spider from "../Header/imgHeader/ragno.png";
 import spider2 from "../Header/imgHeader/ragno2.png";
-import { Link } from "react-router-dom";
 
 function HeaderBanner() {
   return (

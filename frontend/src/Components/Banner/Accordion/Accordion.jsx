@@ -14,6 +14,7 @@ const AccordionSection = styled.div`
   height: 50vh;
   background: #000000;
   box-sizing: border-box;
+  margin: 5px 5px;
 `;
 
 const Container = styled.div`
@@ -43,7 +44,7 @@ const Wrap = styled.div`
 
 const Dropdown = styled.div`
   background: #1c1c1c;
-  color: #f00;
+  color: #ff2727;
   width: 100%;
   height: 100px;
   display: flex;
