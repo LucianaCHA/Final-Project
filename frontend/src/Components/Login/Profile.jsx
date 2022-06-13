@@ -32,9 +32,9 @@ const Profile = () => {
   ) : (
     <div>
       {logged.role === "ROLE_SUPER_ADMIN" ? (
-        <Button className="button" onClick={() => navigate("/admin")}>
-          ADMIN
-        </Button>
+        <button className="btn btn-primary btn-block" onClick={() => navigate("/admin")}>
+          ADMIN- Access
+        </button>
       ) : null}
       <Navbar />
       <h2>Welcome {logged.name}!</h2>

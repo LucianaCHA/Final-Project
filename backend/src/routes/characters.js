@@ -40,7 +40,6 @@ stories:e.stories.items.map((e) => ({name:e.name,id:e.resourceURI.split("/").spl
 events:e.events.items.map((e) => ({name:e.name,id:e.resourceURI.split("/").splice(-1)[0]})),
 	}))
 
-	console.log("entre al if")
 	characters.forEach(async (e) => {
         if (!e.img.includes("image_not_available") && e.name.length > 4) {
           await Characters.findOrCreate({

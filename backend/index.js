@@ -22,10 +22,10 @@ var superAdmin = Users.findOrCreate({
 });
 var superAdmin2 = Users.findOrCreate({
 	where: {
-		email: "281212.namaste@gmail.com",
-		password: 'alex123',
-		name: "Alex Wolf",
-		nickname: "The-Machine",
+		email: "admin@gmail.com",
+		password: 'admi123!',
+		name: "Admin: Lu",
+		nickname: "Blue lantern",
 		role: "ROLE_SUPER_ADMIN",
 	},
 });
