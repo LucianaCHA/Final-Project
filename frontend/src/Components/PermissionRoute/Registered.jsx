@@ -42,7 +42,7 @@ const Registered = () => {
             redirected, click below
             <Link to="/">Go to log in</Link>
             </p> 
-          :  userAdmin?.role !== "ROLE_BANNED" 
+          :  userAdmin?.role !== null
           ?
         <Outlet />
         : (
