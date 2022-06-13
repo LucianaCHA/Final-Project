@@ -1,5 +1,5 @@
 export function validate(input) {
-    const validFirstName = /^[a-zA-Z\s]+$/
+    const name = /^[a-zA-Z\s]+$/
     const validLastName = /^[a-zA-Z\s]+$/
     const validUser = /^[a-zA-Z0-9_.\-.]{4,16}$/; // Letras, numeros, guion y guion_bajo
     const validEmail = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
@@ -9,8 +9,8 @@ export function validate(input) {
     
     let error = {};
     
-    if (input.firstName && !validFirstName.test(input.firstName)) {
-        error.firstName = 'Special characters or numbers are not allowed';
+    if (input.name && !name.test(input.name)) {
+        error.name = 'Special characters or numbers are not allowed';
     }
     if (input.lastName && !validLastName.test(input.lastName)) {
         error.lastName = 'Special characters or numbers are not allowed';

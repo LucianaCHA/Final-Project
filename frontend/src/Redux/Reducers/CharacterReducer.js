@@ -27,9 +27,12 @@ function CharactersReducer(state = initialStateOfCharacter, { type, payload }) {
                 detailCharacter: payload
             }
             case GET_NAME:
+                console.log('payload REDUCER NAME RECIBE', payload)
+                let characters = [...state.Characters];
+                let filtCharacter = characters?.filter((character) =>character.name.toLowerCase().includes(payload.toLowerCase()))
                 return {
                     ...state,
-                    copyCharacters: payload
+                    copyCharacters: filtCharacter
                 }
             case GET_CREATORS:
                 return {

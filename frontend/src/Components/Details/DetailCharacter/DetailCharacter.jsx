@@ -18,7 +18,7 @@ import swal from 'sweetalert';
 const DetailCharacter = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const {user, isLoading, isAuthenticated} = useAuth0();
+  const {user} = useAuth0();
 
    const favoritesCharacters = useSelector((state) => state.CharactersReducer.favoritesCharacters)
    const detailCharacter = useSelector((state) => state.CharactersReducer.detailCharacter)
@@ -37,7 +37,6 @@ const DetailCharacter = () => {
 
     const handleClick = (e) => {
     
-      console.log("estrellita")
       
       let arrayIds = [...favoritesCharacters]
       arrayIds=arrayIds.map(e=>e.idPrincipal)
@@ -49,8 +48,7 @@ const DetailCharacter = () => {
         console.log("entre al if not find")
         console.log([...favoritesCharacters,detailCharacter])
         arrayIds = [...arrayIds,detailCharacter.idPrincipal]
-        console.log("arrayIds")
-        console.log(arrayIds)
+
         dispatch(postFavoriteCharacters(arrayIds,user.email))
         swal({
           title: "Add  from Favorite, Successfully!",
@@ -59,8 +57,6 @@ const DetailCharacter = () => {
       } else {
         let fil= arrayIds.filter((e) => e !== detailCharacter.idPrincipal)
         // console.log([...postFavorite.favoritesComics,postFavorite.detailCharacter])
-       console.log("fil")
-       console.log(fil)
        dispatch(postFavoriteCharacters(fil,user.email))
        
        swal({

@@ -9,14 +9,14 @@ import styled from "styled-components";
 import { useAuth0 } from "@auth0/auth0-react";
 import {
   AppBar,
-  Tab,
+  // Tab,
   Tabs,
   Toolbar,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
 import SimpleBottomNavigation from "../Navbar/MainNav";
- import { useDispatch, useSelector } from "react-redux";
+//  import { useDispatch, useSelector } from "react-redux";
 import AuthNav from "../Login/auth-nav";
 // import { useEffect } from "react";
 // import { loginUser } from "../../Redux/Actions/actions";
@@ -131,18 +131,18 @@ export default function Navbar() {
 // }
 
 
-const LogIn = styled.a`
-  border: 2px solid #f9f9f9;
-  border-radius: 7px;
-  margin: 0 20px;
-  padding: 7px 15px;
-  letter-spacing: 1.1px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
+// const LogIn = styled.a`
+//   border: 2px solid #f9f9f9;
+//   border-radius: 7px;
+//   margin: 0 20px;
+//   padding: 7px 15px;
+//   letter-spacing: 1.1px;
+//   font-weight: bold;
+//   cursor: pointer;
+//   transition: all 0.2s ease-in-out;
 
-  &:hover {
-    background-color: #f9f9f9;
-    color: #000;
-  }
-`
+//   &:hover {
+//     background-color: #f9f9f9;
+//     color: #000;
+//   }
+// `

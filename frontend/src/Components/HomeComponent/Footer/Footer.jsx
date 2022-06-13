@@ -10,10 +10,6 @@ return (
             <ul>
                 <li>marvel.plus@marvel.com</li>
                 <span className="reserverd-rights">©2022 MARVEL</span>
-                <li>
-                    <i className="fab fa-github"></i>
-                    <a href="https://github.com/LucianaCHA/Final-Project">github</a>
-                </li>
             </ul>
         </div>
     </footer>

@@ -17,7 +17,6 @@ const AuthNav = () => {
         dispatch(login(res.data));
        
       }, []);
-      console.log('user en authNav',user);
   }
 
   useEffect(() => {

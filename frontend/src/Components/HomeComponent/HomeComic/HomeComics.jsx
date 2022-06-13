@@ -18,38 +18,33 @@ const HomeComics = () => {
   const navigate = useNavigate();
   const allComics = useSelector((state) => state.ComicsReducer.copyComics);
   const userLogin = useSelector((state) => state.ComicsReducer.loginUser);
-  const noRegister = 'password y/o userName incorrecto/s'
+  const noRegister = "password y/o userName incorrecto/s";
 
-  console.log('USERLOGIN',userLogin)
   const [page, setPage] = useState(1);
   const [numOfPages] = useState(10);
   const [, setData] = useState([]);
   const [copyComics, setCopyComics] = useState([]);
   const [currentPage, setCurrentPage] = useState();
-  const PER_PAGE = 15;
+  const PER_PAGE = 16;
   const start = (page - 1) * PER_PAGE;
   const end = page * PER_PAGE;
   useEffect(() => {
     // if(userLogin === noRegister || userLogin === undefined) {
     //   navigate('/formLoginUser')
     // }
-    console.log(userLogin)
     dispatch(getAllComics());
     setPage(1);
   }, [dispatch, navigate, userLogin]);
-
 
   useEffect(() => {
     // if(userLogin === noRegister || userLogin === undefined) {
     //   navigate('/formLoginUser')
     // }
-    console.log(userLogin)
     setData(allComics);
     setCopyComics(allComics);
   }, [navigate, userLogin, allComics]);
   useEffect(() => {
     window.scroll(0, 0);
-
     setCurrentPage(copyComics.slice(start, end));
     // eslint-disable-next-line
   }, [page, copyComics]);
@@ -64,8 +59,16 @@ const HomeComics = () => {
       <SearchBarComics />
       <div className="grid">
         {currentPage &&
-          currentPage.map(({ id, title,  idPrincipal, img }) => {
-            return <ComicCard key={id} id={id} idPrincipal={idPrincipal} title={title} image={img} />;
+          currentPage.map(({ id, title, idPrincipal, img }) => {
+            return (
+              <ComicCard
+                key={id}
+                id={id}
+                idPrincipal={idPrincipal}
+                title={title}
+                image={img}
+              />
+            );
           })}
       </div>
       <br />

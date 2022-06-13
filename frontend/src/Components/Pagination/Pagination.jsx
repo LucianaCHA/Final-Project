@@ -23,13 +23,13 @@ export default function CustomPagination({ setPage, numOfPages = 10 }) {
         <Pagination
           onChange={(e) => handlePageChange(e.target.textContent)}
           count={numOfPages}
-          shape="rounded"
           color="secondary"
+          style={{ backgroundColor: "rgba(200 35 35)",opacity:'0.8', borderRadius: "50px", textColor: "white" }}
           hideNextButton
           hidePrevButton
           size="large"
-          text="000000"
-          style={{ color: "red" }}
+          shape="circular"
+          
         />
         </Container>
     </div>

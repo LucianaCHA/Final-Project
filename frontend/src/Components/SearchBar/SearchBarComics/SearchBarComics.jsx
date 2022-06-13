@@ -1,23 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { getComicsByTitle } from "../../../Redux/Actions/actions";
-import { useAuth0 } from "@auth0/auth0-react";
-import { authenticateUser } from "../../../Redux/Actions/actions";
 import { FiSearch } from "react-icons/fi";
-import swal from 'sweetalert';
+import swal from "sweetalert";
+
 export default function SearchBarComics() {
   const dispatch = useDispatch();
-  // const { isAuthenticated, loginWithRedirect } = useAuth0();
-
-  // const authorized = useSelector((state) => state.ComicsReducer.authenticated);
-
-  // console.log(isAuthenticated, "es autenticado");
-  // console.log(authorized, "es autorizado?");
-
-  // useEffect(() => {
-  //   dispatch(authenticateUser());
-  // }, []);
-
   const [title, setTitle] = useState("");
 
   function handleChange(e) {
@@ -31,13 +19,12 @@ export default function SearchBarComics() {
     setTitle("");
     if (!title) {
       swal({
-        title:"Name not found",
+        title: "Comic not found",
         icon: "error",
       });
     }
   }
   return (
-     
     <div>
       <input
         style={{
@@ -52,11 +39,7 @@ export default function SearchBarComics() {
         value={title}
         onChange={handleChange}
       />
-      {/* type="text"
-                value={title}
-                placeholder="Search comic's title"
-                onChange={e => { handleChange(e) }}
-            /> */}
+   
       <button
         style={{
           background: "transparent",
@@ -76,10 +59,5 @@ export default function SearchBarComics() {
         <FiSearch />
       </button>
     </div>
-   
   );
 }
-
-
-
-

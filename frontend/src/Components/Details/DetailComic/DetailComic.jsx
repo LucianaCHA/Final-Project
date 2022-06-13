@@ -10,14 +10,13 @@ import {
 import { getByCreators } from "../../../Redux/Actions/FilterOrderActions";
 import ReactStars from "react-rating-stars-component";
 import MyButton from "../../../Styles/MyButton";
-
 import Navbar from "../../Navbar/Navbar";
 import { Link } from "react-router-dom";
-
 import "./DetailComic.scss";
 import Loading from "../../Loading/Loading";
 import { useAuth0 } from "@auth0/auth0-react";
 import swal from 'sweetalert';
+import Carousel from 'react-bootstrap/Carousel';
 
 const DetailComic = () => {
   const { id } = useParams();
@@ -29,16 +28,9 @@ const DetailComic = () => {
 
   const [show, setShow] = React.useState(true);
 
-//////////////////FAVORITE//////////
 const postFavorite = useSelector((state) => state.ComicsReducer)
-// console.log(postFavorite);
-// console.log(postFavorite.loginUser.id);
-
 
 const [input, setInput] = React.useState({})
-
-
-  ////////////////FAVORITE//////////////
 
   useEffect(() => {
     dispatch(getById(id));
@@ -56,7 +48,6 @@ const [input, setInput] = React.useState({})
   // }
 
  const handleClick = (e) => {
-    console.log("estrellita")
 
 let arrayIds = [...postFavorite.favoritesComics]
 arrayIds=arrayIds.map(e=>e.idPrincipal)
@@ -64,8 +55,7 @@ console.log("arrayIds")
 console.log(arrayIds)
 if (!arrayIds.includes(postFavorite.selectedComic[0].idPrincipal)) {
   // setSelect([...select, event.target.value]);
-  console.log("entre al if not find")
-  console.log([...postFavorite.favoritesComics,postFavorite.selectedComic[0]])
+
   arrayIds = [...arrayIds,postFavorite.selectedComic[0].idPrincipal]
   console.log("arrayIds")
   console.log(arrayIds)
@@ -93,6 +83,14 @@ if (!arrayIds.includes(postFavorite.selectedComic[0].idPrincipal)) {
 // dispatch(postFavoriteComics(postFavorite.loginUser.id,postFavorite.favoritesComics) )
 
   };
+  
+  const handleCreator = (e) =>{
+    e.preventDefault();
+    setShow(true);
+    dispatch(getByCreators(e.target.value));
+    setShow(false);
+    console.log('detail en get by creator',detail[0]);
+  }
 
   const img = (comic) => {
     let img = null;
@@ -150,12 +148,13 @@ if (!arrayIds.includes(postFavorite.selectedComic[0].idPrincipal)) {
               <br></br>
               <ReactStars></ReactStars>
               <div> <br></br><br></br>
-              <MyButton className="randomchar__name" variant="contained"  style={{ color: "red" }}  onClick={(e) => handleClick(e)}> Agregar a Favorito ⭐</MyButton>
+              <MyButton className="randomchar__name" variant="contained"  style={{ color: "red" }}  onClick={(e) => handleClick(e)}> Add to favourites⭐</MyButton>
               </div>
             </div>
           </div>
           <div className="randomchar__block">
-            <div className="randomchar__block">
+          
+            
               {!id.includes("-") &&
                 detail[0].creators?.map((creator) => (
                   <div key={creator.creatorId}>
@@ -164,7 +163,7 @@ if (!arrayIds.includes(postFavorite.selectedComic[0].idPrincipal)) {
                     <button
                       className="button button__main"
                       value={creator.creatorId}
-                      onClick={handleClick}
+                      onClick={handleCreator}
                     >
                       {creator.creatorName}
                     </button>
@@ -179,14 +178,19 @@ if (!arrayIds.includes(postFavorite.selectedComic[0].idPrincipal)) {
                     <button
                       className="button button__main"
                       value={creator}
-                      onClick={handleClick}
+                      onClick={handleCreator}
                     >
                       {creator}
                     </button>
                   </div>
                 ))}
+                               
+  <div style={{display:'flex', width:'300px'}}>
+        <div style={{overflow:'hidden', maxHeight: '700px'}}>
+        <div style={{overflow:'scroll' , maxHeight: '700px'}}>
 
-              {show
+        <div style={{scrollBehavior:'smooth'}}>
+              {show                
                 ? null
                 : creators &&
                   creators?.map((comic) => (
@@ -203,14 +207,20 @@ if (!arrayIds.includes(postFavorite.selectedComic[0].idPrincipal)) {
                       />
                       <h3>{comic.title}</h3>
                     </Link>
+                   
                   ))}
+                  </div> 
+                  </div>
+                  </div>
+                  </div>
+                  </div>          
             </div>
-          </div>
 
           {/* <p class="bodytext" style={{fontFamily:' Helvetica' , textAlign:'center',color:"white"}}>{detail[0].description}</p> */}
-        </div>
+        
       </div>
       <Navbar />
+      
     </>
   );
 };

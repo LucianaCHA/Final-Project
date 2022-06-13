@@ -12,9 +12,10 @@ import SearchBarCharacter from "../../SearchBar/SearchBarCharacters/SearchBarCha
 const HomeCharacter = () => {
     const dispatch = useDispatch()
     const Characters = useSelector(state => state.CharactersReducer.copyCharacters)
-    const [numOfPages] = useState(15);
+    const [numOfPages] = useState(16);
     const [currentPage, setCurrentPage] = useState(1);
     const [data, setData] = useState([]);
+
     
     //Traer datos
     useEffect(() => {
@@ -23,14 +24,13 @@ const HomeCharacter = () => {
 
     useEffect(() => {
         setData(Characters)
-    }, [Characters])
+    }, [dispatch, Characters])
 
     const handlePageClick = ({ selected: selectedPage }) => {
         // console.log('selectedPage', selectedPage);
         setCurrentPage(selectedPage);
     }
     const offset = currentPage * numOfPages;
-console.log(data)
     const currentPageData = data ?
         data.slice(offset, offset + numOfPages)
             .map(e => {
@@ -45,7 +45,7 @@ console.log(data)
                 )
 
             })
-        : <p>No hay nada </p>
+        : <p>There is no data to show</p>
 
     //===========Rellenar estado interno===============//
 

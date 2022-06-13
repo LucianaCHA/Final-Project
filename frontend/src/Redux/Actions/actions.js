@@ -82,10 +82,10 @@ export function getCharacterId(id) { // Obtener personaje por id
 export function getCharacterByName(name) { //obten personajes por nombre
     return async function (dispatch) {
         try {
-            const { data } = await axios.get(`/characters/all?name=${name}`);
+            // const { data } = await axios.get(`/characters?name=${name}`);
             return dispatch({
                 type: GET_NAME,
-                payload: data
+                payload: name
             })
         }
         catch (error) {
