@@ -16,12 +16,12 @@ import "./DetailComic.scss";
 import Loading from "../../Loading/Loading";
 import { useAuth0 } from "@auth0/auth0-react";
 import swal from 'sweetalert';
-import Carousel from 'react-bootstrap/Carousel';
+
 
 const DetailComic = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
-  const { user, isLoading, isAuthenticated } = useAuth0();
+  const { user } = useAuth0();
   const comics = useSelector((state) => state.ComicsReducer);
   let detail = comics.selectedComic;
   const creators = useSelector((state) => state.ComicsReducer.copyComics);
@@ -29,8 +29,6 @@ const DetailComic = () => {
   const [show, setShow] = React.useState(true);
 
 const postFavorite = useSelector((state) => state.ComicsReducer)
-
-const [input, setInput] = React.useState({})
 
   useEffect(() => {
     dispatch(getById(id));

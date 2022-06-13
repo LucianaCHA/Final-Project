@@ -7,10 +7,22 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import { useAuth0 } from "@auth0/auth0-react";
 import "./Profile.css";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
   const login = useSelector((state) => state);
   const logged = login.ComicsReducer.user;
+
+  const favoriteComics = useSelector(
+    (state) => state.ComicsReducer.favoritesComics
+  );
+  console.log("favoriteComics", favoriteComics);
+  const favoriteCharacters = useSelector(
+    (state) => state.ComicsReducer.favoritesCharacters
+  );
+  console.log("favoriteCharacters", favoriteCharacters);
+  const favourites = [...favoriteComics, ...favoriteCharacters];
+  console.log("favourites", favourites);
   const { user } = useAuth0();
 
   const navigate = useNavigate();
@@ -57,14 +69,29 @@ const Profile = () => {
               }
             </h2>
           ) : null}
-          <h2> Newest favourites:</h2>
+          <div className="card-container">
+            <h2> Latest favourites:</h2>
+            {favourites?.map((favourite) => (
+              <div className="card" key={favourite.id}>
+                <Link
+                  to={`/homeComics/DetailComic/${
+                    favourite.id || favourite.idPrincipal
+                  }`}
+                >
+                  <img
+                    src={favourite.img}
+                    style={{ width: "75px", height: "100px" }}
+                    className="card-img-top"
+                    alt={favourite.title}
+                  />
+                  <h6>{favourite.title}</h6>
+                </Link>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
       <div className="row">
-        {/* <pre className="col-12 text-light bg-dark p-4">
-              {JSON.stringify(user, null, 2)}
-            </pre>  */}
-
         <button
           onClick={() => navigate("/profile/edit")}
           className="btn btn-primary btn-block"
