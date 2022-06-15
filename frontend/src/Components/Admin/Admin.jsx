@@ -102,7 +102,7 @@ const Admin = () => {
         <Link to="/">HOME</Link>
       </Button>
 
-      <h1 style={{ margin: "4rem", width: "40%" }} class="ui teal header">
+      <h1 style={{ margin: "4rem", width: "40%" }} className="ui teal header">
         Welcome to your DASHBOARD
       </h1>
       <div>
@@ -198,7 +198,7 @@ const Admin = () => {
       </div>
 
       <div>
-        <h2 style={{ margin: "4rem", width: "40%" }} class="ui teal header">
+        <h2 style={{ margin: "4rem", width: "40%" }} className="ui teal header">
           USERS MENU
         </h2>
 
@@ -280,7 +280,7 @@ const Admin = () => {
       </div>
 
       <div>
-        <h2 style={{ margin: "4rem", width: "40%" }} class="ui teal header">
+        <h2 style={{ margin: "4rem", width: "40%" }} className="ui teal header">
           COMICS MENU
         </h2>
 

@@ -46,6 +46,7 @@ export const GET_ADMIN = "GET_ADMIN"
 export const FILT_BY_STATS = "FILT_BY_STATS"
 
 export const POST_PAYMENT = "POST_PAYMET"
+export const UPGRADE_USER = "UPGRADE_USER"
 
 //================CHARACTERS=================//
 export function getAllCharacters() {    // Obtener todos los personajes
@@ -558,4 +559,23 @@ export function postPayment(pago) {
             alert("error post paypal(se rompio)", err)
         }
     }
+    }
+    export function upgradeUser(id) {
+        return async function(dispatch) {
+            try {
+                const userData = {
+                    id: id,
+                    plan_id: 1,
+                    role:"ROLE_PRIME"
+                };
+                const editUser = await axios.put(`/user/db`, userData);
+                return dispatch ({
+                    type: UPGRADE_USER,
+                    payload: editUser.data
+                })
+            }
+            catch(error) {
+                console.log(error)
+            }
+        }
     }

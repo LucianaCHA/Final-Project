@@ -1,6 +1,6 @@
 import React from "react";
-import style from "styled-components";
-import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
+// import style from "styled-components";
+// import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
 import styled from "styled-components";
 import Code from "../AboutUs/Code";
 import mili from "./img/team/WhatsApp Image 2022-05-18 at 12.51.25.jpeg";
@@ -15,10 +15,10 @@ const AboutUs = () => {
         <h1>
           <br></br>
         </h1>
-        <div class="contenedor">
+        <div className="contenedor">
           <h1>NUESTRO EQUIPO </h1>
           <SobreNosotros>Quienes somos</SobreNosotros>
-          <h2 class="slogan">
+          <h2 className="slogan">
             Creamos aplicaciones altamente funcionales - 100% adaptadas a tus
             necesidades
           </h2>
@@ -27,7 +27,7 @@ const AboutUs = () => {
             nuestros clientes a la vanguardia, proveyendo soporte y
             asesoramiento.
           </h3>
-          <p class="parrafo">
+          <p className="parrafo">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
             Exercitationem dicta rem hic totam necessitatibus tempora animi
             error perferendis. Vero corrupti porro quia! Ad saepe alias,
@@ -81,22 +81,22 @@ const AboutUs = () => {
   );
 };
 
-const SignUp = styled.a`
-  width: 100%;
-  padding: 12px 0;
-  letter-spacing: 1.3px;
-  font-size: 1.15rem;
-  cursor: pointer;
-  border: none;
-  background-color: #0063e5;
-  color: #f9f9f9;
-  font-weight: bold;
-  border-radius: 4px;
+// const SignUp = styled.a`
+//   width: 100%;
+//   padding: 12px 0;
+//   letter-spacing: 1.3px;
+//   font-size: 1.15rem;
+//   cursor: pointer;
+//   border: none;
+//   background-color: #0063e5;
+//   color: #f9f9f9;
+//   font-weight: bold;
+//   border-radius: 4px;
 
-  &:hover {
-    background-color: #0483ee;
-  }
-`;
+//   &:hover {
+//     background-color: #0483ee;
+//   }
+// `;
 
 const Sec = styled.div`
 margin: 15px 15px;
@@ -113,13 +113,13 @@ margin: auto;
 overflow: hidden;
 background-color: #000000;
 }`;
-const Parrafo = styled.div`
-    margin-bottom: 13px;
-    font-weight: 300;
-    text-align: justify;
-    line-height: 24px;
-    color: #fffff;
-}`;
+// const Parrafo = styled.div`
+//     margin-bottom: 13px;
+//     font-weight: 300;
+//     text-align: justify;
+//     line-height: 24px;
+//     color: #fffff;
+// }`;
 
 const SobreNosotros = styled.div`
 width: 100%;

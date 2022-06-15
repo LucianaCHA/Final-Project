@@ -22,6 +22,7 @@ import {
   GET_USER_DATA,
   SET_USER_DATA,
   FILT_BY_STATS,
+  UPGRADE_USER,
 } from "../Actions/actions";
 import {
   FILT_BY_CHARACTER,
@@ -159,7 +160,16 @@ function ComicsReducer(state = initialState, { type, payload }) {
         ...state,
         copyUsers: filtered2,
       };
-            
+
+      case UPGRADE_USER:
+        const editUser = state.Comics.user.findIndex((c) => c.id === type.payload.id);
+        state.Comics.user[editUser] = type.payload;
+        console.log(editUser);
+        return {
+          ...state,
+          user: [...state.Comics.user],
+        };        
+
     case CLEAR_COMICS:
       return {
         ...state,
