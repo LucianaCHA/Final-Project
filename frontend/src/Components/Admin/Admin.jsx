@@ -25,10 +25,10 @@ const Admin = () => {
   const history = useNavigate();
   const dispatch = useDispatch();
 
-  const users  = useSelector((state) => state.ComicsReducer.copyUsers);
- // let usersAll = usersList.ComicsReducer.copyUsers;
+  const users = useSelector((state) => state.ComicsReducer.copyUsers);
+  // let usersAll = usersList.ComicsReducer.copyUsers;
   const [statsNewUsers, setStatsNewUsers] = React.useState(0);
-  const [, setStatsNewpayedUsers] = React.useState(0);
+  const [statsNewpayedUsers, setStatsNewpayedUsers] = React.useState(0);
   const [statsInvoicing, setStatsInvoicing] = React.useState(0);
 
   const [showUsers, setShowUsers] = React.useState(false);
@@ -45,10 +45,7 @@ const Admin = () => {
   useEffect(() => {
     dispatch(getAllUsers());
     dispatch(getAllComics());
-    
   }, [dispatch]);
-
- 
 
   const handleFilter = (e) => {
     e.preventDefault();
@@ -57,7 +54,7 @@ const Admin = () => {
   };
   const handleAll = (e) => {
     e.preventDefault();
-    dispatch(getAllUsers())
+    dispatch(getAllUsers());
     setShowUsers(!showUsers);
   };
 
@@ -71,40 +68,39 @@ const Admin = () => {
     setShowComics(!showComics);
   };
 
-
   const invoice = () => {
-    let planArr = users.filter((user) => user.plan_id);
+    let planArr = users.filter(
+      (user) => user.plan_id === 1 || user.plan_id === 2
+    );
+    let count = 0;
     for (let i = 0; i < planArr.length; i++) {
       if (planArr[i].plan_id === 1) {
-        setStatsInvoicing(statsInvoicing + 7);
+        count = count + 7;
       } else if (planArr[i].plan_id === 2) {
-        setStatsInvoicing(statsInvoicing + 70);
+        count = count + 70;
       }
     }
-    return statsInvoicing;
+    return count;
+  };
+
+  const paying = () => {
+    let primeArr = users.filter((user) => user.role === "ROLE_PRIME");
+    return primeArr.length;
   };
 
   const handleFilterMonth = (e) => {
     e.preventDefault();
     dispatch(filterByStats(e.target.value));
     setStatsNewUsers(users.length);
-  console.log('en el habndler filter!!!!', users , e.target.value, typeof(e.target.value))  
-    setStatsNewpayedUsers(
-      users.filter((user) => user.role === "ROLE_PRIME").length
-    );
+    setStatsNewpayedUsers(paying());
     setStatsInvoicing(invoice());
   };
 
   return (
-    <div>
-    
+    <div style = {{margin: '15px 15px', padding: '10px'}}>
       <Button className="button">
-        <Link to="/">
-          HOME
-        </Link>
+        <Link to="/">HOME</Link>
       </Button>
-
-      <AuthNav/>
 
       <h1 style={{ margin: "4rem", width: "40%" }} class="ui teal header">
         Welcome to your DASHBOARD
@@ -147,7 +143,7 @@ const Admin = () => {
             New payed users
           </Button.Content>
           <Button.Content style={{ fontSize: "22px" }} hidden>
-            {setStatsNewpayedUsers}
+            {statsNewpayedUsers}
           </Button.Content>
         </Button>
         <Button
@@ -167,8 +163,7 @@ const Admin = () => {
             Billing this Month
           </Button.Content>
           <Button.Content style={{ fontSize: "22px" }} hidden>
-          
-            $ {statsInvoicing}
+            ${statsInvoicing}
           </Button.Content>
         </Button>
       </div>
@@ -264,10 +259,8 @@ const Admin = () => {
             : showUsers &&
               users?.map((user) => {
                 return (
-                  <Table.Row  key ={user.id}>
-                    <Table.Cell>
-                      {user.name}
-                    </Table.Cell>
+                  <Table.Row key={user.id}>
+                    <Table.Cell>{user.name}</Table.Cell>
                     <Table.Cell>{user.email}</Table.Cell>
                     <Table.Cell>{user.role}</Table.Cell>
                     <Table.Cell>{user.plan_id}</Table.Cell>
@@ -285,10 +278,6 @@ const Admin = () => {
               })}
         </Table>
       </div>
-
-      <br />
-      <br />
-      <br />
 
       <div>
         <h2 style={{ margin: "4rem", width: "40%" }} class="ui teal header">
@@ -354,11 +343,14 @@ const Admin = () => {
                         />
                       </Fab>
                       <Fab color="secondary" aria-label="add">
-                        <IoEyeSharp  onClick={() =>
-                            history(`/homeComics/detailComic/${comic.idPrincipal}`)
-                          } />
+                        <IoEyeSharp
+                          onClick={() =>
+                            history(
+                              `/homeComics/detailComic/${comic.idPrincipal}`
+                            )
+                          }
+                        />
                       </Fab>
-                     
                     </Table.Cell>
                   </Table.Row>
                 );
