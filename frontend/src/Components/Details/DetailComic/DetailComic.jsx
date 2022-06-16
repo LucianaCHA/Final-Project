@@ -162,13 +162,15 @@ const DetailComic = () => {
                 <div key={creator.creatorId}>
                   <p className="randomchar__descr">{creator.creatorRole}</p>
 
-                  <button
-                    className="button button__main"
+                  <MyButton
+                    className="randomchar__name"
+                    variant="contained"
                     value={creator.creatorId}
+                    style={{ color: "red" }}
                     onClick={handleCreator}
                   >
                     {creator.creatorName}
-                  </button>
+                  </MyButton>
                 </div>
               ))}
             {id.includes("-") && (
