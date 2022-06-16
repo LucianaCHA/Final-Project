@@ -15,8 +15,7 @@ import { Link } from "react-router-dom";
 import "./DetailComic.scss";
 import Loading from "../../Loading/Loading";
 import { useAuth0 } from "@auth0/auth0-react";
-import swal from 'sweetalert';
-
+import swal from "sweetalert";
 
 const DetailComic = () => {
   const { id } = useParams();
@@ -28,7 +27,7 @@ const DetailComic = () => {
 
   const [show, setShow] = React.useState(true);
 
-const postFavorite = useSelector((state) => state.ComicsReducer)
+  const postFavorite = useSelector((state) => state.ComicsReducer);
 
   useEffect(() => {
     dispatch(getById(id));
@@ -39,56 +38,52 @@ const postFavorite = useSelector((state) => state.ComicsReducer)
     if (user.email) {
       dispatch(getFavorites(user.email));
     }
-  }, [ postFavorite.loginUser.id]);
+  }, [postFavorite.loginUser.id]);
 
   // if(postFavorite.loginUser.id&&!postFavorite.favoritesComics){
   //   dispatch(getFavorites(postFavorite.loginUser.id));
   // }
 
- const handleClick = (e) => {
+  const handleClick = (e) => {
+    let arrayIds = [...postFavorite.favoritesComics];
+    arrayIds = arrayIds.map((e) => e.idPrincipal);
+    console.log("arrayIds", arrayIds);
+    if (!arrayIds.includes(postFavorite.selectedComic[0].idPrincipal)) {
+      // setSelect([...select, event.target.value]);
 
-let arrayIds = [...postFavorite.favoritesComics]
-arrayIds=arrayIds.map(e=>e.idPrincipal)
-console.log("arrayIds")
-console.log(arrayIds)
-if (!arrayIds.includes(postFavorite.selectedComic[0].idPrincipal)) {
-  // setSelect([...select, event.target.value]);
+      arrayIds = [...arrayIds, postFavorite.selectedComic[0].idPrincipal];
+      console.log("arrayIds", arrayIds);
 
-  arrayIds = [...arrayIds,postFavorite.selectedComic[0].idPrincipal]
-  console.log("arrayIds")
-  console.log(arrayIds)
-  
-  dispatch(postFavoriteComics(arrayIds,postFavorite.user.email))
+      dispatch(postFavoriteComics(arrayIds, postFavorite.user.email));
 
-  swal({
-    title: "Add  from Favorite, Successfully!",
-    icon: "success",
-  });
+      swal({
+        title: "Add  from Favorite, Successfully!",
+        icon: "success",
+      });
+    } else {
+      let fil = arrayIds.filter(
+        (e) => e !== postFavorite.selectedComic[0].idPrincipal
+      );
+      // console.log([...postFavorite.favoritesComics,postFavorite.selectedComic[0]])
+      console.log("fil", fil);
+      dispatch(postFavoriteComics(fil, postFavorite.user.email));
 
-} else {
-  let fil= arrayIds.filter((e) => e !== postFavorite.selectedComic[0].idPrincipal)
-  // console.log([...postFavorite.favoritesComics,postFavorite.selectedComic[0]])
- console.log("fil")
- console.log(fil)
- dispatch(postFavoriteComics(fil,postFavorite.user.email))
- swal({
-  title: "Removed from Favorites!",
-  icon: "error",
-});
+      swal({
+        title: "Removed from Favorites!",
+        icon: "error",
+      });
+    }
 
-  }
-
-// dispatch(postFavoriteComics(postFavorite.loginUser.id,postFavorite.favoritesComics) )
-
+    // dispatch(postFavoriteComics(postFavorite.loginUser.id,postFavorite.favoritesComics) )
   };
-  
-  const handleCreator = (e) =>{
+
+  const handleCreator = (e) => {
     e.preventDefault();
     setShow(true);
     dispatch(getByCreators(e.target.value));
     setShow(false);
-    console.log('detail en get by creator',detail[0]);
-  }
+    console.log("detail en get by creator", detail[0]);
+  };
 
   const img = (comic) => {
     let img = null;
@@ -145,80 +140,85 @@ if (!arrayIds.includes(postFavorite.selectedComic[0].idPrincipal)) {
               <br></br>
               <br></br>
               <ReactStars></ReactStars>
-              <div> <br></br><br></br>
-              <MyButton className="randomchar__name" variant="contained"  style={{ color: "red" }}  onClick={(e) => handleClick(e)}> Add to favourites⭐</MyButton>
+              <div>
+                {" "}
+                <br></br>
+                <br></br>
+                <MyButton
+                  className="randomchar__name"
+                  variant="contained"
+                  style={{ color: "red" }}
+                  onClick={(e) => handleClick(e)}
+                >
+                  {" "}
+                  Add to favourites⭐
+                </MyButton>
               </div>
             </div>
           </div>
           <div className="randomchar__block">
-          
-            
-              {!id.includes("-") &&
-                detail[0].creators?.map((creator) => (
-                  <div key={creator.creatorId}>
-                    <p className="randomchar__descr">{creator.creatorRole}</p>
+            {!id.includes("-") &&
+              detail[0].creators?.map((creator) => (
+                <div key={creator.creatorId}>
+                  <p className="randomchar__descr">{creator.creatorRole}</p>
 
-                    <button
-                      className="button button__main"
-                      value={creator.creatorId}
-                      onClick={handleCreator}
-                    >
-                      {creator.creatorName}
-                    </button>
-                  </div>
-                ))}
-              {id.includes("-") && (
-                <h3 className="randomchar__descr">Creators</h3>
-              )}
-              {id.includes("-") &&
-                detail[0].creators?.map((creator) => (
-                  <div key={creator}>
-                    <button
-                      className="button button__main"
-                      value={creator}
-                      onClick={handleCreator}
-                    >
-                      {creator}
-                    </button>
-                  </div>
-                ))}
-                               
-  <div style={{display:'flex', width:'300px'}}>
-        <div style={{overflow:'hidden', maxHeight: '700px'}}>
-        <div style={{overflow:'scroll' , maxHeight: '700px'}}>
+                  <button
+                    className="button button__main"
+                    value={creator.creatorId}
+                    onClick={handleCreator}
+                  >
+                    {creator.creatorName}
+                  </button>
+                </div>
+              ))}
+            {id.includes("-") && (
+              <h3 className="randomchar__descr">Creators</h3>
+            )}
+            {id.includes("-") &&
+              detail[0].creators?.map((creator) => (
+                <div key={creator}>
+                  <button
+                    className="button button__main"
+                    value={creator}
+                    onClick={handleCreator}
+                  >
+                    {creator}
+                  </button>
+                </div>
+              ))}
 
-        <div style={{scrollBehavior:'smooth'}}>
-              {show                
-                ? null
-                : creators &&
-                  creators?.map((comic) => (
-                    <Link
-                      className="link_card"
-                      to={`/homeComics/DetailComic/${
-                        comic.id || comic.idPrincipal
-                      }`}
-                    >
-                      <img
-                        src={img(comic)}
-                        alt="Not available"
-                        style={{ width: "100px", height: "100px" }}
-                      />
-                      <h3>{comic.title}</h3>
-                    </Link>
-                   
-                  ))}
-                  </div> 
+            <div style={{ display: "flex", width: "300px" }}>
+              <div style={{ overflow: "hidden", maxHeight: "700px" }}>
+                <div style={{ overflow: "scroll", maxHeight: "700px" }}>
+                  <div style={{ scrollBehavior: "smooth" }}>
+                    {show
+                      ? null
+                      : creators &&
+                        creators?.map((comic) => (
+                          <Link
+                            className="link_card"
+                            to={`/homeComics/DetailComic/${
+                              comic.id || comic.idPrincipal
+                            }`}
+                          >
+                            <img
+                              src={img(comic)}
+                              alt="Not available"
+                              style={{ width: "100px", height: "100px" }}
+                            />
+                            <h3>{comic.title}</h3>
+                          </Link>
+                        ))}
                   </div>
-                  </div>
-                  </div>
-                  </div>          
+                </div>
+              </div>
             </div>
+          </div>
+        </div>
 
-          {/* <p class="bodytext" style={{fontFamily:' Helvetica' , textAlign:'center',color:"white"}}>{detail[0].description}</p> */}
-        
+        {/* <p class="bodytext" style={{fontFamily:' Helvetica' , textAlign:'center',color:"white"}}>{detail[0].description}</p> */}
       </div>
       <Navbar />
-      
     </>
   );
 };
