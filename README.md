@@ -3,8 +3,11 @@
 This app was the final project to been graduated as Full Stack Developer. 
 This app consumes the [API Marvel Comics](https://developer.marvel.com/) and would allow to  get,by a regular payment , access to lecture to Marvel comics. For those who aren't paying yet would be able to navigate the whole catalog of comics and characters. There are some filters and search bars to offer a better UX. For the owner, there is a private module where it is possible to add and remove comics, upgrade users and get stats about billing and other key points for business. The design and components were made to be affordable and adaptatives.
 
+Check the video demo :
+<br/>
+[![video demo](https://img.youtube.com/vi/wYWV5Cfu5Jo/0.jpg)](https://www.youtube.com/watch?v=wYWV5Cfu5Jo)
 
-## What more I ´d like to let you know about this project?
+## What I ´d like to let you know about this project?
 
 This was a great experience where I had the opportunity to work in a team which had to be coordinated to take to term a huge project in less than three weeks.
 I´m glad for the support and for hearing when I proposed to them to do something quite different as a final project.
